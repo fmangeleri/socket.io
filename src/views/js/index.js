@@ -8,10 +8,10 @@ socket.on('disconnect', () => {
   console.log('Se perdio la conexion');
 });
 
-socket.on('reconnect_attempt', () => {
+socket.io.on('reconnect_attempt', () => {
   console.log('Intentando reestablecer la conexion');
 });
 
-socket.on('reconnect', () => {
+socket.io.on('reconnect', () => {
   console.log('Conexion reestablecida');
 });
