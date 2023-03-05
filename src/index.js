@@ -22,16 +22,10 @@ io.on('connection', (socket) => {
   console.log('Id de la conexion: ' + socket.id);
   console.log('Clientes conectados: ' + io.engine.clientsCount);
 
-  socket.on('disconnect', () => {
-    console.log('El socket ' + socket.id + ' se ha desconectado.');
-  });
+  socket.emit('on', 'on');
+  socket.emit('on', 'on');
 
-  socket.conn.once('upgrade', () => {
-    console.log(
-      'Hemos pasado de HTTP Long-Polling a ',
-      socket.conn.transport.name
-    );
-  });
+  io.emit('io', 'Clientes conectados: ' + io.engine.clientsCount);
 });
 
 httpServer.listen(3000);
